@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign In</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="box">
+    <h2>Sign In</h2>
+
+    <input id="email" placeholder="Email"><br><br>
+    <input id="pass" type="password" placeholder="Password"><br><br>
+
+    <button onclick="signin()">Sign In</button>
+
+    <p><a href="signup.html">Go to Sign Up</a></p>
+
+    <p id="msg"></p>
+</div>
+
+<script>
+function signin(){
+    let email = document.getElementById("email").value;
+    let pass = document.getElementById("pass").value;
+
+    let savedEmail = localStorage.getItem("email");
+    let savedPass = localStorage.getItem("pass");
+
+    if(email === savedEmail && pass === savedPass){
+        document.getElementById("msg").innerHTML = "Login Successful!";
+        document.getElementById("msg").style.color = "green";
+    }
+    else{
+        document.getElementById("msg").innerHTML = "Wrong email or password!";
+        document.getElementById("msg").style.color = "red";
+    }
+}
+</script>
+
+</body>
+</html>
