@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="box">
+    <h2>Sign Up</h2>
+
+    <input id="name" placeholder="Username"><br><br>
+    <input id="email" placeholder="Email"><br><br>
+    <input id="pass" type="password" placeholder="Password"><br><br>
+    <input id="cpass" type="password" placeholder="Confirm Password"><br><br>
+
+    <button onclick="signup()">Sign Up</button>
+
+    <p><a href="signin.html">Go to Sign In</a></p>
+
+    <p id="msg"></p>
+</div>
+
+<script>
+function signup(){
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let pass = document.getElementById("pass").value;
+    let cpass = document.getElementById("cpass").value;
+
+    if(name === "" || email === "" || pass === "" || cpass === ""){
+        document.getElementById("msg").innerHTML = "Fill all fields!";
+        return;
+    }
+
+    if(pass !== cpass){
+        document.getElementById("msg").innerHTML = "Password not match!";
+        return;
+    }
+
+    localStorage.setItem("name", name);
+    localStorage.setItem("email", email);
+    localStorage.setItem("pass", pass);
+
+    document.getElementById("msg").innerHTML = "Sign Up Successful!";
+}
+</script>
+
+</body>
+</html>
